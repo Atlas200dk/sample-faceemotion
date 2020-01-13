@@ -1,0 +1,7 @@
+/home/lwl/AscendProjects/sample-faceemotion/build/intermediates/device/CMakeFiles/install/strip.dir
+/home/lwl/AscendProjects/sample-faceemotion/build/intermediates/device/CMakeFiles/edit_cache.dir
+/home/lwl/AscendProjects/sample-faceemotion/build/intermediates/device/CMakeFiles/Device.dir
+/home/lwl/AscendProjects/sample-faceemotion/build/intermediates/device/CMakeFiles/rebuild_cache.dir
+/home/lwl/AscendProjects/sample-faceemotion/build/intermediates/device/CMakeFiles/list_install_components.dir
+/home/lwl/AscendProjects/sample-faceemotion/build/intermediates/device/CMakeFiles/install/local.dir
+/home/lwl/AscendProjects/sample-faceemotion/build/intermediates/device/CMakeFiles/install.dir

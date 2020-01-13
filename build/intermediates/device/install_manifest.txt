@@ -1,0 +1,1 @@
+/home/lwl/AscendProjects/sample-faceemotion/build/intermediates/device/../../../run/out/libDevice.so

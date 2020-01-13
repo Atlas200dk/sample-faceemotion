@@ -1,0 +1,2 @@
+/home/lwl/AscendProjects/sample-faceemotion/build/intermediates/host/../../../run/out/main
+/home/lwl/AscendProjects/sample-faceemotion/build/intermediates/host/../../../run/out/libHost.so

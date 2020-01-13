@@ -51,6 +51,7 @@ message PresentImageRequest {
      uint32 height = 3;
      bytes data = 4;
      repeated Rectangle_Attr rectangle_list = 5;
+     repeated Coordinate point_list = 6;
 }
 
 enum PresentDataErrorCode {
