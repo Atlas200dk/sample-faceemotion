@@ -17,7 +17,7 @@
 
 1.  <a name="li953280133816"></a>获取源码包。
 
-    将[https://gitee.com/Atlas200DK/sample-faceemotion](https://gitee.com/Atlas200DK/sample-faceemotion)仓中的代码以Mind Studio安装用户下载至Mind Studio所在Ubuntu服务器的任意目录，例如代码存放路径为：$HOME/AscendProjects/sample-faceemotion。
+    将[[https://gitee.com/Atlas200DK/sample-faceemotion/tree/1.3x.0.0/](https://gitee.com/Atlas200DK/sample-faceemotion/tree/1.3x.0.0/)仓中的代码以Mind Studio安装用户下载至Mind Studio所在Ubuntu服务器的任意目录，例如代码存放路径为：$HOME/AscendProjects/sample-faceemotion。
 
 2.  <a name="li1365682471610"></a>获取此应用中所需要的原始网络模型。
 
