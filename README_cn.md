@@ -17,11 +17,11 @@
 
 1.  <a name="zh-cn_topic_0182554631_li953280133816"></a>获取源码包。
 
-    将[https://gitee.com/Atlas200DK/sample-faceemotion](https://gitee.com/Atlas200DK/sample-faceemotion)仓中的代码以Mind Studio安装用户下载至Mind Studio所在Ubuntu服务器的任意目录，例如代码存放路径为：/home/ascend/sample-faceemotion。
+    将[https://gitee.com/Atlas200DK/sample-faceemotion](https://gitee.com/Atlas200DK/sample-faceemotion)仓中的代码以Mind Studio安装用户下载至Mind Studio所在Ubuntu服务器的任意目录，例如代码存放路径为：$HOME/sample-faceemotion。
 
 2.  获取此应用中所需要的原始网络模型。
 
-    参考[表1](#zh-cn_topic_0182554631_table97791025517)获取此应用中所用到的原始网络模型及其对应的权重文件，并将其存放到Mind Studio所在Ubuntu服务器的任意目录，例如$HOME/ascend/models/faceemotion。
+    参考[表1](#zh-cn_topic_0182554631_table97791025517)获取此应用中所用到的原始网络模型及其对应的权重文件，并将其存放到Mind Studio所在Ubuntu服务器的任意目录，例如：$HOME/ascend/models/faceemotion。
 
     **表 1**  Face Emotion中使用模型
 
@@ -94,7 +94,7 @@
 
             此时在**DetectionOutput**层的**Suggestion**中选择**SSDDetectionOutput**，并点击**Retry**。
 
-            模型转换成功后，后缀为.om的离线模型存放地址为_$HOME/modelzoo/face\_detection/device_。
+            模型转换成功后，后缀为.om的离线模型存放地址为：$HOME/modelzoo/face\_detection/device。
 
             >![](public_sys-resources/icon-note.gif) **说明：**   
             >Mindstudio模型转换中每一步的具体意义和参数说明可以参考[https://ascend.huawei.com/doc/mindstudio/2.1.0\(beta\)/zh/zh-cn\_topic\_0188462651.html](https://ascend.huawei.com/doc/mindstudio/2.1.0(beta)/zh/zh-cn_topic_0188462651.html)  
@@ -142,12 +142,11 @@
 
     执行如下命令在最后一行添加DDK\_HOME及LD\_LIBRARY\_PATH的环境变量。
 
-    **export DDK\_HOME=/home/XXX/tools/che/ddk/ddk**
+    **export DDK\_HOME=$HOME/tools/che/ddk/ddk**
 
     **export LD\_LIBRARY\_PATH=$DDK\_HOME/uihost/lib**
 
-    >![](doc/source/img/icon-note.gif) **说明：**   
-    >-   XXX为Mind Studio安装用户，/home/XXX/tools为DDK默认安装路径。  
+    >![](doc/source/img/icon-note.gif) **说明：**     
     >-   如果此环境变量已经添加，则此步骤可跳过。  
 
     输入:wq!保存退出。
@@ -159,7 +158,7 @@
 
 ## 部署<a name="zh-cn_topic_0182554631_section147911829155918"></a>
 
-1.  以Mind Studio安装用户进入faceemotion应用代码所在根目录，如/home/ascend/sample-faceemotion。
+1.  以Mind Studio安装用户进入faceemotion应用代码所在根目录，如：$HOME/sample-faceemotion。
 2.  <a name="zh-cn_topic_0182554631_li08019112542"></a>执行部署脚本，进行工程环境准备，包括ascenddk公共库的编译与部署、Presenter Server服务器的配置等操作，其中Presenter Server用于接收Application发送过来的数据并通过浏览器进行结果展示。
 
     **bash deploy.sh** _host\_ip_ _model\_mode_
