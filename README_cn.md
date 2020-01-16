@@ -107,7 +107,7 @@
 
             转换时，请将AIPP配置关闭。
 
-            **图 5**  FaceEmotion AIPP配置<a name="zh-cn_topic_0203223294_fig2865313121718"></a>  
+            **图 5**  FaceEmotion 输入参数配置<a name="zh-cn_topic_0203223294_fig2865313121718"></a>  
 
             ![](images/face_emotion.png)
 
