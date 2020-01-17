@@ -21,12 +21,11 @@
 
     执行如下命令在最后一行添加DDK\_HOME及LD\_LIBRARY\_PATH的环境变量。
 
-    **export DDK\_HOME=/home/XXX/tools/che/ddk/ddk**
+    **export DDK\_HOME=$HOME/tools/che/ddk/ddk**
 
     **export LD\_LIBRARY\_PATH=$DDK\_HOME/uihost/lib**
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   XXX为Mind Studio安装用户，/home/XXX/tools为DDK默认安装路径。  
+    >![](public_sys-resources/icon-note.gif) **说明：**     
     >-   如果此环境变量已经添加，则此步骤可跳过。  
 
     输入:wq!保存退出。
@@ -37,11 +36,11 @@
 
 2.  <a name="zh-cn_topic_0219731049_li953280133816"></a>获取源码包。
 
-    将[https://gitee.com/Atlas200DK/sample-faceemotion](https://gitee.com/Atlas200DK/sample-faceemotion)仓中的代码以Mind Studio安装用户下载至Mind Studio所在Ubuntu服务器的任意目录，例如代码存放路径为：_/home/ascend/sample-faceemotion_。
+    将[https://gitee.com/Atlas200DK/sample-faceemotion](https://gitee.com/Atlas200DK/sample-faceemotion)仓中的代码以Mind Studio安装用户下载至Mind Studio所在Ubuntu服务器的任意目录，例如代码存放路径为：$HOME/sample-faceemotion。
 
 3.  <a name="zh-cn_topic_0219731049_li1365682471610"></a>获取此应用中所需要的原始网络模型。
 
-    参考[表 Face Emotion中使用模型](#zh-cn_topic_0219731049_table144841813177)获取此应用中所用到的原始网络模型及其对应的权重文件，并将其存放到Mind Studio所在Ubuntu服务器的任意目录，例如$HOME/ascend/models/faceemotion。
+    参考[表 Face Emotion中使用模型](#zh-cn_topic_0219731049_table144841813177)获取此应用中所用到的原始网络模型及其对应的权重文件，并将其存放到Mind Studio所在Ubuntu服务器的任意目录，例如：$HOME/ascend/models/faceemotion。
 
     **表 1**  Face Emotion中使用模型
 
@@ -94,21 +93,21 @@
         模型转换成功后，转换好的后缀为.om的模型文件存放地址为：$HOME/tools/che/model-zoo/my-model/XXX。
 
         >![](public_sys-resources/icon-note.gif) **说明：**   
-        >XXX代表模型名，如face\_deteciton模型转换好的.om模型存放路径为$HOME/tools/che/model-zoo/my-model/face\_detecion。  
+        >XXX代表模型名，如face\_deteciton模型转换好的.om模型存放路径为：$HOME/tools/che/model-zoo/my-model/face\_detecion。  
 
 
 5.  将转换好的模型文件（.om文件）上传到[步骤2](#zh-cn_topic_0219731049_li953280133816)中源码所在路径下的“sample-faceemotion/script”目录下。
 
 ## 部署<a name="zh-cn_topic_0219731049_section7994174585917"></a>
 
-1.  以Mind Studio安装用户进入faceemotion应用代码所在根目录，如/home/ascend/sample-faceemotion。
+1.  以Mind Studio安装用户进入faceemotion应用代码所在根目录，如：$HOME/sample-faceemotion。
 2.  <a name="zh-cn_topic_0219731049_li9634105881418"></a>执行部署脚本，进行工程环境准备，包括ascenddk公共库的编译与部署、Presenter Server服务器的配置等操作，其中Presenter Server用于接收Application发送过来的数据并通过浏览器进行结果展示。
 
     **bash deploy.sh** _host\_ip_ _model\_mode_
 
     -   _host\_ip_：Atlas 200 DK开发者板的IP地址。
     -   model\_mode代表模型文件及依赖软件的部署方式，默认为internet。
-        -   **local**：若Mind Studio所在Ubuntu系统未连接网络，请使用local模式，执行此命令前，需要参考[依赖代码库下载](#zh-cn_topic_0219731049_section4995103618210)将依赖的公共代码库下载到“sample-facedetection/script“目录下。
+        -   **local**：若Mind Studio所在Ubuntu系统未连接网络，请使用local模式，执行此命令前，需要参考[依赖代码库下载](#zh-cn_topic_0219731049_section4995103618210)将依赖的公共代码库下载到“sample-faceemotio/script“目录下。
         -   **internet**：若Mind Studio所在Ubuntu系统已连接网络，请使用internet模式，在线下载依赖代码库。
 
     命令示例：
@@ -182,7 +181,7 @@
 
     Face Emotion应用执行后会处于持续运行状态，若要停止Face Emotion应用程序，可执行如下操作。
 
-    以Mind Studio安装用户在_** /home/ascend/sample-faceemotion**_  目录下执行如下命令：
+    以Mind Studio安装用户在$HOME/sample-faceemotion目录下执行如下命令：
 
     **bash stop\_faceemotionapp.sh** _host\_ip_
 
@@ -194,7 +193,7 @@
 
 -   **停止Presenter Server服务**
 
-    Presenter Server服务启动后会一直处于运行状态，若想停止Face Detection应用对应的Presenter Server服务，可执行如下操作。
+    Presenter Server服务启动后会一直处于运行状态，若想停止Face Emotion应用对应的Presenter Server服务，可执行如下操作。
 
     **bash stop\_prensenterserver.sh**
 
