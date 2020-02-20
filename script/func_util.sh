@@ -4,6 +4,7 @@ script_path="$( cd "$(dirname ${BASH_SOURCE})" ; pwd -P )"
 remote_port="22118"
 DDK_BIN="$DDK_HOME/uihost/bin"
 tools_path="${script_path}/.."
+PROTOC="$DDK_HOME/bin/x86_64-linux-gcc5.4/protoc"
 
 function check_python3_lib()
 {
