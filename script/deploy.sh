@@ -35,10 +35,35 @@ check_param_configure()
     fi
 }
 
+function check_faceemotion_proto_version()
+{
+    pb_h_file=$app_path/../script/presenter_message.pb.h
+    proto_file=$app_path/../script/presenter_message.proto
+    proto_dir=$app_path/../script
+
+    check_proto_version $pb_h_file $proto_file
+    if [ $? -eq 1 ];then
+        echo "ERROR: check facial recognition proto code failed"
+        return 1
+    fi
+
+    cp -f $proto_dir/presenter_message.pb.h $app_path/common/include/
+    cp -f $proto_dir/presenter_message.pb.cc $app_path/face_emotion_postprocess/
+
+    echo "Regenerate proto code success"
+    return 0
+}
 
 function build_common()
 {
-	echo "build common lib..."
+    echo "build common lib..."
+    if [ ! -d "${HOME}/ascend_ddk" ];then
+        mkdir $HOME/ascend_ddk
+        if [[ $? -ne 0 ]];then
+            echo "ERROR: Execute mkdir command failed, Please check your environment"
+            return 1
+        fi
+    fi
     bash ${script_path}/build_ezdvpp.sh ${remote_host}
     if [ $? -ne 0 ];then
         echo "ERROR: Failed to deploy ezdvpp"
@@ -59,6 +84,13 @@ function main()
     echo "Modify param information in graph.config..."
     check_param_configure
     if [ $? -ne 0 ];then
+        return 1
+    fi
+
+    echo "Check faceemotion proto"
+    check_faceemotion_proto_version
+    if [ $? -ne 0 ];then
+        echo "ERROR: check faceemotion proto failed"
         return 1
     fi
 

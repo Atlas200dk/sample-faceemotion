@@ -44,7 +44,7 @@ if(type STREQUAL host)
     endif()
 
     # add host lib path
-    link_directories($ENV{NPU_HOST_LIB}  $ENV{HOME}/ascend_ddk/host/lib $ENV{HOME}/ascend_ddk/device/lib /home/HwHiAiUser/HIAI_PROJECTS/ascend_lib $ENV{NPU_DEVICE_LIB})
+    link_directories($ENV{NPU_HOST_LIB}  $ENV{HOME}/ascend_ddk/host/lib $ENV{HOME}/ascend_ddk/device/lib /home/HwHiAiUser/HIAI_PROJECTS/ascend_lib)
     set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
     add_executable(main main.cpp)
     add_library(Host SHARED Camera/Mind_Camera.cpp face_emotion_postprocess/face_emotion_postprocess.cpp)
@@ -52,7 +52,7 @@ if(type STREQUAL host)
 
     if(target STREQUAL "RC")
         target_link_libraries(main matrixdaemon mmpa pthread dl rt)
-        target_link_libraries(Host matrixdaemon hiai_common media_mini presenteragent Dvpp_api Dvpp_jpeg_decoder Dvpp_jpeg_encoder Dvpp_vpc ascend_ezdvpp)
+        target_link_libraries(Host matrixdaemon hiai_common media_mini presenteragent ascend_ezdvpp)
     else()
         target_link_libraries(main matrix mmpa pthread dl rt)
         target_link_libraries(Host matrix hiai_common)
@@ -63,7 +63,7 @@ else()
     add_compile_options(-DCPU_ONLY)
 
     # add device lib path
-    link_directories($ENV{NPU_HOST_LIB} $ENV{HOME}/ascend_ddk/host/lib $ENV{HOME}/ascend_ddk/device/lib /home/HwHiAiUser/HIAI_PROJECTS/ascend_lib $ENV{NPU_DEVICE_LIB})
+    link_directories($ENV{NPU_DEV_LIB} $ENV{HOME}/ascend_ddk/host/lib $ENV{HOME}/ascend_ddk/device/lib /home/HwHiAiUser/HIAI_PROJECTS/ascend_lib)
 
     add_library(Device SHARED face_detection_inference/face_detection_inference.cpp face_emotion_inference/face_emotion_inference.cpp)
 
