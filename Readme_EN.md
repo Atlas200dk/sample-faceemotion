@@ -1,3 +1,5 @@
+English|[中文](Readme.md)
+
 # Facial Expression Recognition<a name="EN-US_TOPIC_0228461849"></a>
 
 Developers can deploy this application on the Atlas 200 DK to predict seven types of facial expressions in videos, including anger, disgust, fear, happy, sad, surprised, and normal.
