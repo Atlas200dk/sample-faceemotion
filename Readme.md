@@ -1,3 +1,5 @@
+中文|[English](Readme_EN.md)
+
 # 人脸表情识别<a name="ZH-CN_TOPIC_0228461849"></a>
 
 开发者可以将本Application部署至Atlas 200 DK上实现摄像头对视频中的人脸表情预测，共有7种可能的表情，依次是生气（anger）、厌恶（digust）、恐惧（fear）、开心（happy）、伤心（sad）、惊讶（surprised）、中性（normal）。
