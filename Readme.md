@@ -1,4 +1,4 @@
-# 人脸表情识别<a name="ZH-CN_TOPIC_0219102918"></a>
+# 人脸表情识别<a name="ZH-CN_TOPIC_0228461849"></a>
 
 开发者可以将本Application部署至Atlas 200 DK上实现摄像头对视频中的人脸表情预测，共有7种可能的表情，依次是生气（anger）、厌恶（digust）、恐惧（fear）、开心（happy）、伤心（sad）、惊讶（surprised）、中性（normal）。
 
@@ -11,20 +11,21 @@
 -   已完成Mind Studio的安装。
 -   已完成Atlas 200 DK开发者板与Mind Studio的连接，交叉编译器的安装，SD卡的制作及基本信息的配置等。
 
-## 部署<a name="zh-cn_topic_0203223294_section081240125311"></a>
+## 部署<a name="section412811285117"></a>
 
-1.  部署，可以选择如下快速部署或者常规方法部署，二选一即可；
+可以选择如下快速部署或者常规方法部署，二选一即可：
 
-    1.1 快速部署，请参考：https://gitee.com/Atlas200DK/faster-deploy 。
-
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   该快速部署脚本可以快速部署多个案例，请选择faceemotion案例部署即可。  
-    >-   该快速部署脚本自动完成了代码下载、模型转换、环境变量配置等流程，如果需要了解详细的部署过程请选择常规部署方式，请转**1.2 常规部署**。
-
-    1.2 常规部署，请参考：https://gitee.com/Atlas200DK/sample-README/tree/master/sample-faceemotion 。
+1.  快速部署，请参考：  [https://gitee.com/Atlas200DK/faster-deploy](https://gitee.com/Atlas200DK/faster-deploy)  。
 
     >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   该部署方式，需要手动完成代码下载、模型转换、环境变量配置等过程。完成后，会对其中的过程会更加了解。
+    >-   该快速部署脚本可以快速部署多个案例，请选择**faceemotion**案例部署即可。  
+    >-   该快速部署脚本自动完成了代码下载、模型转换、环境变量配置等流程，如果需要了解详细的部署过程请选择常规部署方式。转**[2. 常规部署](#li3208251440)**  
+
+2.  <a name="li3208251440"></a>常规部署，请参考：  [https://gitee.com/Atlas200DK/sample-READEME/tree/master/sample-faceemotion](https://gitee.com/Atlas200DK/sample-READEME/tree/master/sample-faceemotion)  。
+
+    >![](public_sys-resources/icon-note.gif) **说明：**   
+    >-   该部署方式，需要手动完成代码下载、模型转换、环境变量配置等过程。完成后，会对其中的过程更加了解。  
+
 
 ## 编译<a name="section7994174585917"></a>
 
@@ -38,9 +39,9 @@
 
 2.  在**src/param\_configure.conf**文件中配置相关工程信息。
 
-    如[图 配置文件路径](#fig0391184062214)所示。
+    如[图 配置文件路径](#zh-cn_topic_0219102918_fig0391184062214)所示。
 
-    **图 1**  配置文件<a name="fig0391184062214"></a>  
+    **图 1**  配置文件<a name="zh-cn_topic_0219102918_fig0391184062214"></a>  
     
 
     ![](figures/zh-cn_image_0219104978.jpg)
@@ -69,53 +70,51 @@
     >-   三个参数必须全部填写，否则无法通过编译。  
     >-   注意参数填写时不需要使用“”符号。  
 
-3. 执行deploy脚本， 进行配置参数调整及第三方库下载编译
-    打开Mind Studio工具的Terminal，此时默认在代码主目录下，执行如下命令在后台指执行deploy脚本，进行环境部署。如[图 执行deploy脚本](#zh-cn_topic_0203223294_fig423515251038)所示。
-    
-    **图 2**  执行deploy脚本<a name="zh-cn_topic_0203223294_fig4235152510387"></a>  
-    
-    ![](figures/deploy.png)
-    
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   首次deploy时，没有部署第三方库时会自动下载并编译，耗时可能比较久，请耐心等待。后续再重新编译时，不会重复下载编译，部署如上图所示。
-    >-   deploy时，需要选择与开发板通信的主机侧ip，一般为虚拟网卡配置的ip。如果此ip和开发板ip属于同网段，则会自动选择并部署。如果非同网段，则需要手动输入与开发板通信的主机侧ip才能完成deploy。
+3.  执行deploy脚本， 进行配置参数调整及第三方库下载编译 打开Mind Studio工具的Terminal，此时默认在代码主目录下，执行如下命令在后台指执行deploy脚本，进行环境部署。如[图 执行deploy脚本](#zh-cn_topic_0219102918_fig1733142811452)所示。
 
-3.  开始编译，打开Mindstudio工具，在工具栏中点击**Build \> Build \> Build-Configuration**。会在目录下生成build和run文件夹。
+    **图 2**  执行deploy脚本<a name="zh-cn_topic_0219102918_fig1733142811452"></a>  
+    ![](figures/执行deploy脚本-40.png "执行deploy脚本-40")
+
+    >![](public_sys-resources/icon-note.gif) **说明：**   
+    >-   首次deploy时，没有部署第三方库时会自动下载并编译，耗时可能比较久，请耐心等待。后续再重新编译时，不会重复下载编译，部署如上图所示。  
+    >-   deploy时，需要选择与开发板通信的主机侧ip，一般为虚拟网卡配置的ip。如果此ip和开发板ip属于同网段，则会自动选择并部署。如果非同网段，则需要手动输入与开发板通信的主机侧ip才能完成deploy。  
+
+4.  开始编译，打开Mindstudio工具，在工具栏中点击**Build \> Build \> Build-Configuration**。会在目录下生成build和run文件夹。
 
     >![](public_sys-resources/icon-notice.gif) **须知：**   
     >首次编译工程时，**Build \> Build**为灰色不可点击状态。需要点击**Build \> Edit Build Configuration**，配置编译参数后再进行编译。  
 
-4.  <a name="li499911453439"></a>启动Presenter Server。
+5.  启动Presenter Server。
 
-    打开Mind Studio工具的Terminal，此时默认在代码主目录下，执行如下命令在后台启动Face Emotion应用的Presenter Server主程序。
+    打开Mind Studio工具的Terminal，在应用程序代码存放路径下，执行如下命令在后台启动Face Emotion应用的Presenter Server主程序。
 
     **bash run\_present\_server.sh**
 
     当提示“**Please choose one to show the presenter in browser\(default: 127.0.0.1\):**”时，请输入在浏览器中访问Presenter Server服务所使用的IP地址（一般为访问Mind Studio的IP地址）。
 
-    如[图 工程部署示意图](#fig999812514814)所示，请在“**Current environment valid ip list**”中选择通过浏览器访问Presenter Server服务使用的IP地址。
+    如[图 工程部署示意图](#zh-cn_topic_0219102918_fig999812514814)所示，请在“**Current environment valid ip list**”中选择通过浏览器访问Presenter Server服务使用的IP地址。
 
-    **图 3**  工程部署示意图<a name="fig999812514814"></a>  
+    **图 3**  工程部署示意图<a name="zh-cn_topic_0219102918_fig999812514814"></a>  
     
 
     ![](figures/zh-cn_image_0219105391.jpg)
 
-    如[图4](#fig69531305324)所示，表示presenter\_server的服务启动成功。
+    如[图4](#zh-cn_topic_0219102918_fig69531305324)所示，表示presenter\_server的服务启动成功。
 
-    **图 4**  Presenter Server进程启动<a name="fig69531305324"></a>  
+    **图 4**  Presenter Server进程启动<a name="zh-cn_topic_0219102918_fig69531305324"></a>  
     
 
     ![](figures/zh-cn_image_0219105392.jpg)
 
-    使用上图提示的URL登录Presenter Server，仅支持Chrome浏览器。IP地址为[图 工程部署示意图](#fig999812514814)操作时输入的IP地址，端口号默为7007，如下图所示，表示Presenter Server启动成功。
+    使用上图提示的URL登录Presenter Server，仅支持Chrome浏览器。IP地址为[图 工程部署示意图](#zh-cn_topic_0219102918_fig999812514814)操作时输入的IP地址，端口号默为7007，如下图所示，表示Presenter Server启动成功。
 
-    **图 5**  主页显示<a name="fig64391558352"></a>  
-    ![](figures/主页显示.png "主页显示")
+    **图 5**  主页显示<a name="zh-cn_topic_0219102918_fig64391558352"></a>  
+    ![](figures/主页显示-41.png "主页显示-41")
 
     Presenter Server、Mind Studio与Atlas 200 DK之间通信使用的IP地址示例如下图所示：
 
-    **图 6**  IP地址示例<a name="fig1881532172010"></a>  
-    ![](figures/IP地址示例.png "IP地址示例")
+    **图 6**  IP地址示例<a name="zh-cn_topic_0219102918_fig1881532172010"></a>  
+    ![](figures/IP地址示例-42.png "IP地址示例-42")
 
     其中：
 
@@ -128,19 +127,19 @@
 
 1.  运行Face Emotion程序。
 
-    在Mind Studio工具的工具栏中找到Run按钮，点击**Run \> Run 'sample-faceemotion'**，如[图 程序已执行示意图](#fig93931954162719)所示，可执行程序已经在开发者板运行。
+    在Mind Studio工具的工具栏中找到Run按钮，点击**Run \> Run 'sample-faceemotion'**，如[图 程序已执行示意图](#zh-cn_topic_0219102918_fig93931954162719)所示，可执行程序已经在开发者板运行。
 
-    **图 7**  程序运行示例<a name="fig93931954162719"></a>  
+    **图 7**  程序运行示例<a name="zh-cn_topic_0219102918_fig93931954162719"></a>  
     
 
     ![](figures/zh-cn_image_0219105741.jpg)
 
-2.  使用启动Presenter Server服务时提示的URL登录 Presenter Server 网站，详细可参考[启动Presenter Server](#li499911453439)。
+2.  使用启动Presenter Server服务时提示的URL登录 Presenter Server 网站，详细可参考[启动Presenter Server](zh-cn_topic_0219102918.md#li499911453439)。
 
-    等待Presenter Agent传输数据给服务端，单击“Refresh“刷新，当有数据时相应的Channel 的Status变成绿色，如[图8](#fig113691556202312)所示。
+    等待Presenter Agent传输数据给服务端，单击“Refresh“刷新，当有数据时相应的Channel 的Status变成绿色，如[图8](#zh-cn_topic_0219102918_fig113691556202312)所示。
 
-    **图 8**  Presenter Server界面<a name="fig113691556202312"></a>  
-    ![](figures/Presenter-Server界面.png "Presenter-Server界面")
+    **图 8**  Presenter Server界面<a name="zh-cn_topic_0219102918_fig113691556202312"></a>  
+    ![](figures/Presenter-Server界面-43.png "Presenter-Server界面-43")
 
     >![](public_sys-resources/icon-note.gif) **说明：**   
     >-   Face Emotion的Presenter Server最多支持10路Channel同时显示，每个  _presenter\_view\_app\_name_  对应一路Channel。  
@@ -154,9 +153,9 @@
 
     Face Emotion应用执行后会处于持续运行状态，若要停止Face Emotion应用程序，可执行如下操作。
 
-    单击停止按钮停止Face Emotion应用程序。如[图 Face Emotion应用已停止](#fig2182182518112)所示应用程序已停止运行。
+    单击停止按钮停止Face Emotion应用程序。如[图 Face Emotion应用已停止](#zh-cn_topic_0219102918_fig2182182518112)所示应用程序已停止运行。
 
-    **图 9**  Face Emotion应用已停止<a name="fig2182182518112"></a>  
+    **图 9**  Face Emotion应用已停止<a name="zh-cn_topic_0219102918_fig2182182518112"></a>  
     
 
     ![](figures/zh-cn_image_0219102951.gif)
@@ -170,7 +169,7 @@
     **ps -ef | grep presenter | grep faceemotion**
 
     ```
-    ascend@ascend-HP-ProDesk-600-G4-PCI-MT:~/sample-faceemotion$ ps -ef | grep presenter | grep faceemotion 
+    ascend@ascend-HP-ProDesk-600-G4-PCI-MT:~/sample-faceemotion$ ps -ef | grep presenter | grep faceemotion
      ascend    7701  1615  0 14:21 pts/8    00:00:00 python3 presenterserver/presenter_server.py --app face_emotion
     ```
 
