@@ -1,54 +1,54 @@
-中文|[English](Readme_EN.md)
+English|[中文](Readme_cn.md)
 
-# 人脸表情识别<a name="ZH-CN_TOPIC_0228461849"></a>
+# Facial Expression Recognition<a name="EN-US_TOPIC_0228461849"></a>
 
-开发者可以将本Application部署至Atlas 200 DK上实现摄像头对视频中的人脸表情预测，共有7种可能的表情，依次是生气（anger）、厌恶（digust）、恐惧（fear）、开心（happy）、伤心（sad）、惊讶（surprised）、中性（normal）。
+Developers can deploy this application on the Atlas 200 DK to predict seven types of facial expressions in videos, including anger, disgust, fear, happy, sad, surprised, and normal.
 
-当前分支中的应用适配**1.31.0.0及以上**版本的[DDK&RunTime](https://ascend.huawei.com/resources)。
+The current application adapts to  [DDK&RunTime](https://ascend.huawei.com/resources)  of 1.31.0.0 and later versions.
 
-## 前提条件<a name="section137245294533"></a>
+## Prerequisites<a name="section137245294533"></a>
 
-部署此Sample前，需要准备好以下环境：
+Before deploying this sample, ensure that:
 
--   已完成Mind Studio的安装。
--   已完成Atlas 200 DK开发者板与Mind Studio的连接，交叉编译器的安装，SD卡的制作及基本信息的配置等。
+-   Mind Studio  has been installed.
+-   The Atlas 200 DK developer board has been connected to  Mind Studio, the cross compiler has been installed, the SD card has been prepared, and basic information has been configured.
 
-## 部署<a name="section412811285117"></a>
+## Deployment<a name="section412811285117"></a>
 
-可以选择如下快速部署或者常规方法部署，二选一即可：
+You can use either of the following methods:
 
-1.  快速部署，请参考：  [https://gitee.com/Atlas200DK/faster-deploy](https://gitee.com/Atlas200DK/faster-deploy)  。
+1.  Quick deployment: visit  [https://github.com/Atlas200dk/faster-deploy](https://github.com/Atlas200dk/faster-deploy).
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   该快速部署脚本可以快速部署多个案例，请选择**faceemotion**案例部署即可。  
-    >-   该快速部署脚本自动完成了代码下载、模型转换、环境变量配置等流程，如果需要了解详细的部署过程请选择常规部署方式。转: **[2. 常规部署](#li3208251440)**  
+    >![](public_sys-resources/icon-note.gif) **NOTE:**   
+    >-   The quick deployment script can be used to deploy multiple samples rapidly. Select  **faceemotion**.  
+    >-   The quick deployment script automatically completes code download, model conversion, and environment variable configuration. To learn about the detailed deployment process, go to  **[2. Common deployment](#li3208251440)**.  
 
-2.  <a name="li3208251440"></a>常规部署，请参考：  [https://gitee.com/Atlas200DK/sample-README/tree/master/sample-faceemotion](https://gitee.com/Atlas200DK/sample-README/tree/master/sample-faceemotion)  。
+2.  <a name="li3208251440"></a>Common deployment: visit  [https://github.com/Atlas200dk/sample-README/tree/master/sample-faceemotion](https://github.com/Atlas200dk/sample-README/tree/master/sample-faceemotion).
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   该部署方式，需要手动完成代码下载、模型转换、环境变量配置等过程。完成后，会对其中的过程更加了解。  
+    >![](public_sys-resources/icon-note.gif) **NOTE:**   
+    >-   In this deployment mode, you need to manually download code, convert models, and configure environment variables.  
 
 
-## 编译<a name="section7994174585917"></a>
+## Build<a name="section7994174585917"></a>
 
-1.  打开对应的工程。
+1.  Open the project.
 
-    以Mind Studio安装用户在命令行中进入安装包解压后的“MindStudio-ubuntu/bin”目录，如：$HOME/MindStudio-ubuntu/bin。执行如下命令启动Mind Studio。
+    Go to the directory that stores the decompressed installation package as the Mind Studio installation user in CLI mode, for example,  **$HOME/MindStudio-ubuntu/bin**. Run the following command to start Mind Studio:
 
     **./MindStudio.sh**
 
-    启动成功后，打开**sample-faceemotion**工程。
+    Open the  **sample-faceemotion**  project.
 
-2.  在**src/param\_configure.conf**文件中配置相关工程信息。
+2.  Configure project information in the  **src/param\_configure.conf**  file.
 
-    如[图 配置文件路径](#zh-cn_topic_0219102918_fig0391184062214)所示。
+    For details, see  [Figure 1](#en-us_topic_0219102918_fig0391184062214).
 
-    **图 1**  配置文件<a name="zh-cn_topic_0219102918_fig0391184062214"></a>  
+    **Figure  1**  Configuration file<a name="en-us_topic_0219102918_fig0391184062214"></a>  
     
 
-    ![](figures/zh-cn_image_0219104978.jpg)
+    ![](figures/en-us_image_0219104978.jpg)
 
-    该配置文件内容如下：
+    Content of the configuration file:
 
     ```
     remote_host=
@@ -56,11 +56,11 @@
     presenter_view_app_name=
     ```
 
-    -   remote\_host：配置为Atlas 200 DK开发者板的IP地址。
-    -   data\_source : 配置摄像头所属Channel，取值为Channel-1或者Channel-2，查询摄像头所属Channel的方法请参考[Atlas 200 DK用户手册](https://ascend.huawei.com/doc/Atlas200DK/)中的“如何查看摄像头所属Channel”。
-    -   presenter\_view\_app\_name : 用户自定义的在PresenterServer界面展示的View Name，此View Name需要在Presenter Server展示界面唯一，只能为大小写字母、数字、“/”的组合，位数至少1位。
+    -   **remote\_host**: IP address of the Atlas 200 DK developer board
+    -   **data\_source**: camera channel. The value can be  **Channel-1**  or  **Channel-2**. For details, see "Viewing the Channel to Which a Camera Belongs" in  [Atlas 200 DK User Guide](https://ascend.huawei.com/doc/Atlas200DK/).
+    -   **presenter\_view\_app\_name**: value of  **View Name**  on the  **Presenter Server**  page, which must be unique. The value consists of at least one character and supports only uppercase letters, lowercase letters, digits, and underscores \(\_\).
 
-    配置示例：
+    Configuration example:
 
     ```
     remote_host=192.168.1.2
@@ -68,105 +68,105 @@
     presenter_view_app_name=video
     ```
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   三个参数必须全部填写，否则无法通过编译。  
-    >-   注意参数填写时不需要使用“”符号。  
+    >![](public_sys-resources/icon-note.gif) **NOTE:**   
+    >-   All the three parameters must be set. Otherwise, the build fails.  
+    >-   Do not use double quotation marks \(""\) during parameter settings.  
 
-3.  执行deploy脚本， 进行配置参数调整及第三方库下载编译 打开Mind Studio工具的Terminal，此时默认在代码主目录下，执行如下命令在后台指执行deploy脚本，进行环境部署。如[图 执行deploy脚本](#zh-cn_topic_0219102918_fig1733142811452)所示。
+3.  Run the  **deploy.sh**  script to adjust configuration parameters and download and compile the third-party library. Open the  **Terminal**  window of Mind Studio. By default, the home directory of the code is used. Run the  **deploy.sh**  script in the background to deploy the environment, as shown in  [Figure 2](#en-us_topic_0219102918_fig1733142811452).
 
-    **图 2**  执行deploy脚本<a name="zh-cn_topic_0219102918_fig1733142811452"></a>  
-    ![](figures/执行deploy脚本-40.png "执行deploy脚本-40")
+    **Figure  2**  Running the deploy.sh script<a name="en-us_topic_0219102918_fig1733142811452"></a>  
+    ![](figures/running-the-deploy-sh-script-38.png "running-the-deploy-sh-script-38")
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   首次deploy时，没有部署第三方库时会自动下载并编译，耗时可能比较久，请耐心等待。后续再重新编译时，不会重复下载编译，部署如上图所示。  
-    >-   deploy时，需要选择与开发板通信的主机侧ip，一般为虚拟网卡配置的ip。如果此ip和开发板ip属于同网段，则会自动选择并部署。如果非同网段，则需要手动输入与开发板通信的主机侧ip才能完成deploy。  
+    >![](public_sys-resources/icon-note.gif) **NOTE:**   
+    >-   During the first deployment, if no third-party library is used, the system automatically downloads and builds the third-party library, which may take a long time. The third-party library can be directly used for the subsequent build.  
+    >-   During deployment, select the IP address of the host that communicates with the developer board. Generally, the IP address is the IP address configured for the virtual NIC. If the IP address is in the same network segment as the IP address of the developer board, it is automatically selected for deployment. If they are not in the same network segment, you need to manually type the IP address of the host that communicates with the Atlas DK to complete the deployment.  
 
-4.  开始编译，打开Mindstudio工具，在工具栏中点击**Build \> Build \> Build-Configuration**。会在目录下生成build和run文件夹。
+4.  Start building. Open Mind Studio and choose  **Build \> Build \> Build-Configuration**  from the main menu. The  **build**  and  **run**  folders are generated in the directory.
 
-    >![](public_sys-resources/icon-notice.gif) **须知：**   
-    >首次编译工程时，**Build \> Build**为灰色不可点击状态。需要点击**Build \> Edit Build Configuration**，配置编译参数后再进行编译。  
+    >![](public_sys-resources/icon-notice.gif) **NOTICE:**   
+    >When you build a project for the first time,  **Build \> Build**  is unavailable. You need to choose  **Build \> Edit Build Configuration**  to set parameters before the build.  
 
-5.  启动Presenter Server。<a name="zh-cn_topic_0219102918_fig999812512222"></a> 
+5.  Start Presenter Server.<a name="en-us_topic_0219102918_fig999812512222"></a>  
 
-    打开Mind Studio工具的Terminal，在应用程序代码存放路径下，执行如下命令在后台启动Face Emotion应用的Presenter Server主程序。
+    Open the  **Terminal**  window of Mind Studio. By default, under the code storage path, run the following command to start the Presenter Server program of the face emotion application on the server:
 
     **bash run\_present\_server.sh**
 
-    当提示“**Please choose one to show the presenter in browser\(default: 127.0.0.1\):**”时，请输入在浏览器中访问Presenter Server服务所使用的IP地址（一般为访问Mind Studio的IP地址）。
+    When the message  **Please choose one to show the presenter in browser\(default: 127.0.0.1\):**  is displayed, type the IP address \(usually IP address for accessing Mind Studio\) used for accessing the Presenter Server service in the browser.
 
-    如[图 工程部署示意图](#zh-cn_topic_0219102918_fig999812514814)所示，请在“**Current environment valid ip list**”中选择通过浏览器访问Presenter Server服务使用的IP地址。
+    Select the IP address used by the browser to access the Presenter Server service in  **Current environment valid ip list**, as shown in  [Figure 3](#en-us_topic_0219102918_fig999812514814).
 
-    **图 3**  工程部署示意图<a name="zh-cn_topic_0219102918_fig999812514814"></a>  
+    **Figure  3**  Project deployment<a name="en-us_topic_0219102918_fig999812514814"></a>  
     
 
-    ![](figures/zh-cn_image_0219105391.jpg)
+    ![](figures/en-us_image_0219105391.jpg)
 
-    如[图4](#zh-cn_topic_0219102918_fig69531305324)所示，表示presenter\_server的服务启动成功。
+    [Figure 4](#en-us_topic_0219102918_fig69531305324)  shows that the Presenter Server service has been started successfully.
 
-    **图 4**  Presenter Server进程启动<a name="zh-cn_topic_0219102918_fig69531305324"></a>  
+    **Figure  4**  Starting the Presenter Server process<a name="en-us_topic_0219102918_fig69531305324"></a>  
     
 
-    ![](figures/zh-cn_image_0219105392.jpg)
+    ![](figures/en-us_image_0219105392.jpg)
 
-    使用上图提示的URL登录Presenter Server，仅支持Chrome浏览器。IP地址为[图 工程部署示意图](#zh-cn_topic_0219102918_fig999812514814)操作时输入的IP地址，端口号默为7007，如下图所示，表示Presenter Server启动成功。
+    Use the URL shown in the preceding figure to log in to Presenter Server \(only Google Chrome is supported\). The IP address is that typed in  [Figure 3](#en-us_topic_0219102918_fig999812514814)  and the default port number is  **7007**. The following figure indicates that Presenter Server has been started successfully.
 
-    **图 5**  主页显示<a name="zh-cn_topic_0219102918_fig64391558352"></a>  
-    ![](figures/主页显示-41.png "主页显示-41")
+    **Figure  5**  Home page<a name="en-us_topic_0219102918_fig64391558352"></a>  
+    ![](figures/home-page-39.png "home-page-39")
 
-    Presenter Server、Mind Studio与Atlas 200 DK之间通信使用的IP地址示例如下图所示：
+    The following figure shows the IP address used by Presenter Server and  Mind Studio  to communicate with the Atlas 200 DK.
 
-    **图 6**  IP地址示例<a name="zh-cn_topic_0219102918_fig1881532172010"></a>  
-    ![](figures/IP地址示例-42.png "IP地址示例-42")
+    **Figure  6**  IP address example<a name="en-us_topic_0219102918_fig1881532172010"></a>  
+    ![](figures/ip-address-example-40.png "ip-address-example-40")
 
-    其中：
+    In the preceding figure:
 
-    -   Atlas 200 DK开发者板使用的IP地址为192.168.1.2（USB方式连接）。
-    -   Presenter Server与Atlas 200 DK通信的IP地址为UI Host服务器中与Atlas 200 DK在同一网段的IP地址，例如：192.168.1.223。
-    -   通过浏览器访问Presenter Server的IP地址本示例为：10.10.0.1，由于Presenter Server与Mind Studio部署在同一服务器，此IP地址也为通过浏览器访问Mind Studio的IP。
+    -   The IP address of the Atlas 200 DK developer board is  **192.168.1.2**  \(connected in USB mode\).
+    -   The IP address used by Presenter Server to communicate with the Atlas 200 DK is in the same network segment as the IP address of the Atlas 200 DK on the UI Host server. For example:  **192.168.1.223**.
+    -   The following describes how to access the IP address \(such as  **10.10.0.1**\) of Presenter Server using a browser. Because Presenter Server and  Mind Studio  are deployed on the same server, you can access  Mind Studio  through the browser using the same IP address. 
 
 
-## 运行<a name="section551710297235"></a>
+## Run<a name="section551710297235"></a>
 
-1.  运行Face Emotion程序。
+1.  Run the face emotion application.
 
-    在Mind Studio工具的工具栏中找到Run按钮，点击**Run \> Run 'sample-faceemotion'**，如[图 程序已执行示意图](#zh-cn_topic_0219102918_fig93931954162719)所示，可执行程序已经在开发者板运行。
+    On the toolbar of Mind Studio, click  **Run**  and choose  **Run \> Run 'sample-faceemotion'**. As shown in  [Figure 7](#en-us_topic_0219102918_fig93931954162719), the executable application is running on the developer board.
 
-    **图 7**  程序运行示例<a name="zh-cn_topic_0219102918_fig93931954162719"></a>  
+    **Figure  7**  Application running sample<a name="en-us_topic_0219102918_fig93931954162719"></a>  
     
 
-    ![](figures/zh-cn_image_0219105741.jpg)
+    ![](figures/en-us_image_0219105741.jpg)
 
-2.  使用启动Presenter Server服务时提示的URL登录 Presenter Server 网站，详细可参考[启动Presenter Server](#zh-cn_topic_0219102918_fig999812512222)。
+2.  Use the URL displayed upon the start of the Presenter Server service to log in to Presenter Server. For details, see  [Start Presenter Server](#en-us_topic_0219102918_fig999812512222).
 
-    等待Presenter Agent传输数据给服务端，单击“Refresh“刷新，当有数据时相应的Channel 的Status变成绿色，如[图8](#zh-cn_topic_0219102918_fig113691556202312)所示。
+    Wait for Presenter Agent to transmit data to the server. Click  **Refresh**. When there is data, the icon in the  **Status**  column for the corresponding channel changes to green, as shown in  [Figure 8](#en-us_topic_0219102918_fig113691556202312).
 
-    **图 8**  Presenter Server界面<a name="zh-cn_topic_0219102918_fig113691556202312"></a>  
-    ![](figures/Presenter-Server界面-43.png "Presenter-Server界面-43")
+    **Figure  8**  Presenter Server page<a name="en-us_topic_0219102918_fig113691556202312"></a>  
+    ![](figures/presenter-server-page-41.png "presenter-server-page-41")
 
-    >![](public_sys-resources/icon-note.gif) **说明：**   
-    >-   Face Emotion的Presenter Server最多支持10路Channel同时显示，每个  _presenter\_view\_app\_name_  对应一路Channel。  
-    >-   由于硬件的限制，每一路支持的最大帧率是20fps，受限于网络带宽的影响，帧率会自动适配为较低的帧率进行展示。  
+    >![](public_sys-resources/icon-note.gif) **NOTE:**   
+    >-   For the face emotion application, Presenter Server supports a maximum of 10 channels at the same time \(each  _presenter\_view\_app\_name_  parameter corresponds to a channel\).  
+    >-   Due to hardware limitations, each channel supports a maximum frame rate of 20 fps. A lower frame rate is automatically used when the network bandwidth is low.  
 
-3.  单击右侧对应的View Name链接，比如上图的“video”，查看结果。
+3.  Click a link in the  **View Name**  column, for example,  **video**  in the preceding figure, and view the result.
 
-## 后续处理<a name="section177619345260"></a>
+## Follow-up Operations<a name="section177619345260"></a>
 
--   **停止Face Emotion应用**
+-   Stopping the face emotion application
 
-    Face Emotion应用执行后会处于持续运行状态，若要停止Face Emotion应用程序，可执行如下操作。
+    The face emotion application is running continually after being executed. To stop it, perform the following operation:
 
-    单击停止按钮停止Face Emotion应用程序。如[图 Face Emotion应用已停止](#zh-cn_topic_0219102918_fig2182182518112)所示应用程序已停止运行。
+    Click the stop button to stop the face emotion application.  [Figure 9](#en-us_topic_0219102918_fig2182182518112)  shows that the face emotion application has been stopped.
 
-    **图 9**  Face Emotion应用已停止<a name="zh-cn_topic_0219102918_fig2182182518112"></a>  
+    **Figure  9**  Stop of the face emotion application<a name="en-us_topic_0219102918_fig2182182518112"></a>  
     
 
-    ![](figures/zh-cn_image_0219102951.gif)
+    ![](figures/en-us_image_0219102951.gif)
 
--   **停止Presenter Server服务**
+-   Stopping the Presenter Server service
 
-    Presenter Server服务启动后会一直处于运行状态，若想停止Face Emotion应用对应的Presenter Server服务，可执行如下操作。
+    The Presenter Server service is always in running state after being started. To stop the Presenter Server service for the face emotion application, perform the following operations:
 
-    以Mind Studio安装用户在Mind Studio所在服务器中的命令行中执行如下命令查看Face Emotion应用对应的Presenter Server服务的进程。
+    On the server with  Mind Studio  installed, run the following command as the  Mind Studio  installation user to check the process of the Presenter Server service corresponding to the face emotion application:
 
     **ps -ef | grep presenter | grep faceemotion**
 
@@ -175,9 +175,9 @@
      ascend    7701  1615  0 14:21 pts/8    00:00:00 python3 presenterserver/presenter_server.py --app face_emotion
     ```
 
-    如上所示  _7701_  即为FaceEmotion应用对应的Presenter Server服务的进程ID。
+    In the preceding information,  _7701_  indicates the process ID of the Presenter Server service for the face emotion application.
 
-    若想停止此服务，执行如下命令：
+    To stop the service, run the following command:
 
     **kill -9** _7701_
 
