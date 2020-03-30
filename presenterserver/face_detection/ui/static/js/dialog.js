@@ -1,4 +1,4 @@
-var dialog = (function Dialog() {
+﻿var dialog = (function Dialog() {
     var $mask = $("<div id='dlg-mask'></div>");
 
     //title--
